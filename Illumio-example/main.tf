@@ -6,19 +6,19 @@ module "create_subscription" {
   source  = "Azure/lz-vending/azurerm//modules/subscription"
   version = "latest"
 
-  # Tenant details and Subscription information
+  # Variables needed for creating the subscription
   subscription_name       = var.subscription_name
   subscription_alias      = var.subscription_alias
   billing_scope_id        = var.billing_scope_id
   subscription_offer_type = var.subscription_offer_type
 
-  # Tags and additional configurations (optional)
+  # Optional tags
   tags = {
     Environment = var.environment_tag
     Owner       = var.owner_tag
   }
 
-  # Set to "Enabled" to activate the subscription immediately
+  # Subscription state to control its status after creation
   subscription_state = "Enabled"
 }
 

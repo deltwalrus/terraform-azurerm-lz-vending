@@ -9,7 +9,7 @@ variable "subscription_alias" {
 }
 
 variable "billing_scope_id" {
-  description = "Billing scope for the subscription"
+  description = "Billing scope for the subscription (format: /providers/Microsoft.Billing/billingAccounts/{billing_account_id}/{billing_profile_id})"
   type        = string
 }
 
@@ -19,11 +19,33 @@ variable "subscription_offer_type" {
 }
 
 variable "environment_tag" {
-  description = "Environment tag (e.g., Production, Development)"
+  description = "Environment tag for the subscription (e.g., Production, Development)"
   type        = string
+  default     = "Development"
 }
 
 variable "owner_tag" {
-  description = "Owner tag for the subscription"
+  description = "Owner tag for identifying the subscription owner"
+  type        = string
+}
+
+variable "client_id" {
+  description = "Azure Service Principal client ID for authentication"
+  type        = string
+}
+
+variable "client_secret" {
+  description = "Azure Service Principal client secret for authentication"
+  type        = string
+  sensitive   = true
+}
+
+variable "tenant_id" {
+  description = "Azure AD tenant ID"
+  type        = string
+}
+
+variable "management_subscription_id" {
+  description = "ID of the Azure subscription used to manage resources"
   type        = string
 }
