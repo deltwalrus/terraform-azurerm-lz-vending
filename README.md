@@ -1,3 +1,13 @@
+## Variables for Illumio
+```terraform
+subscription_name       = "Example Subscription"
+subscription_alias      = "example-sub"
+billing_scope_id        = "/providers/Microsoft.Billing/billingAccounts/{billing_account_id}:/{billing_profile_id}"
+subscription_offer_type = "MS-AZR-0017P"
+environment_tag         = "Development"
+owner_tag               = "Your Name or Team"
+```
+
 ## Example
 
 The below example created a landing zone subscription with two virtual networks.
