@@ -1,43 +1,3 @@
-<!-- BEGIN_TF_DOCS -->
-# Terraform landing zone vending module for Azure
-
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/Azure/terraform-azurerm-lz-vending.svg)](http://isitmaintained.com/project/Azure/terraform-azurerm-lz-vending "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/Azure/terraform-azurerm-lz-vending.svg)](http://isitmaintained.com/project/Azure/terraform-azurerm-lz-vending "Percentage of issues still open")
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Azure/terraform-azurerm-lz-vending/badge)](https://scorecard.dev/viewer/?uri=github.com/Azure/terraform-azurerm-lz-vending)
-
-## Overview
-
-The landing zone Terraform module is designed to accelerate deployment of individual landing zones within an Azure tenant.
-We use the [AzureRM](https://registry.terraform.io/providers/hashicorp/azurerm/latest) and [AzAPI](https://registry.terraform.io/providers/azure/azapi/latest) providers to create the subscription and deploy the resources in a single `terrafom apply` step.
-
-The module is designed to be instantiated many times, once for each desired landing zone.
-
-This is currently split logically into the following capabilities:
-
-- Subscription creation and management group placement
-- Networking - deploy multiple vnets with:
-  - Hub & spoke connectivity (peering to a hub network)
-  - vWAN connectivity
-  - Mesh peering (peering between spokes)
-- Role assignments
-- Resource provider (and feature) registration
-- Resource group creation
-- User assigned managed identity creation
-  - Federated credential configuration for GitHub Actions, Terraform Cloud, and other providers.
-
-> When creating virtual network peerings, be aware of the [limit of peerings per virtual network](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fvirtual-network%2Ftoc.json#azure-resource-manager-virtual-networking-limits).
-
-We would like feedback on what's missing in the module.
-Please raise an [issue](https://github.com/Azure/terraform-azurerm-lz-vending/issues) if you have any suggestions.
-
-## Change log
-
-Please see the [GitHub releases pages](https://github.com/Azure/terraform-azurerm-lz-vending/releases) for change log information.
-
-## Notes
-
-Please see the content in the [wiki](https://github.com/Azure/terraform-azurerm-lz-vending/wiki) for more detailed information.
-
 ## Example
 
 The below example created a landing zone subscription with two virtual networks.
@@ -1081,31 +1041,3 @@ The data is collected and governed by Microsoft's privacy policies.
 
 If you don't wish to send usage data to Microsoft, details on how to turn it off can be found [here](https://github.com/Azure/terraform-azurerm-lz-vending/wiki/Telemetry).
 
-## Contributing
-
-This project welcomes contributions and suggestions.
-Most contributions require you to agree to a Contributor License Agreement (CLA)
-declaring that you have the right to, and actually do, grant us the rights to use your contribution.
-For details, visit [https://cla.opensource.microsoft.com](https://cla.opensource.microsoft.com).
-
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment).
-Simply follow the instructions provided by the bot.
-You will only need to do this once across all repos using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-
-## Developing the Module
-
-See [DEVELOPER.md](https://github.com/Azure/terraform-azurerm-lz-vending/blob/main/DEVELOPER.md).
-
-## Trademarks
-
-This project may contain trademarks or logos for projects, products, or services.
-Authorized use of Microsoft trademarks or logos is subject to and must follow
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
-<!-- END_TF_DOCS -->
